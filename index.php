@@ -1,17 +1,9 @@
-
-<?php
-// Get form data from POST request
-$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
-$email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
-$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Data</title>
+    <title>Registration Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,13 +28,6 @@ $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
             border-radius: 4px;
             box-sizing: border-box;
         }
-        .alert {
-            padding: 15px;
-            background-color: #d4edda;
-            color: #155724;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
         button {
             background-color: #4CAF50;
             color: white;
@@ -57,31 +42,24 @@ $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
     </style>
 </head>
 <body>
-    <h2>Registration Data</h2>
-    
-    <?php if (!empty($name) && !empty($email) && !empty($phone)): ?>
-        <div class="alert">
-            Registration data received successfully!
-        </div>
-    <?php endif; ?>
-    
-    <form>
+    <h2>Registration Form</h2>
+    <form action="anothercible.php" method="POST">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<?php echo $name; ?>" readonly>
+            <input type="text" id="name" name="name" required>
         </div>
         
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?php echo $email; ?>" readonly>
+            <input type="email" id="email" name="email" required>
         </div>
         
         <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" readonly>
+            <input type="tel" id="phone" name="phone" required>
         </div>
         
-        <button type="button" onclick="window.location.href='index.php'">Back to Form</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
